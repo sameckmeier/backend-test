@@ -1,0 +1,47 @@
+.Events {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.Events-main, .Events-side {
+  margin-top: 15px;
+}
+
+.Events-main {
+  @include two-thirds();
+  margin-left: 15px;
+}
+
+.Events-side {
+  @include one-third();
+  margin-right: 15px;
+}
+
+.Events-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.Events-reminders-title {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 0;
+}
+
+.Events-add {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Events-add button {
+  background-color: Transparent;
+  border: none;
+}
+
+.Events-add img {
+  height: 75px;
+  width: 75px;
+}
