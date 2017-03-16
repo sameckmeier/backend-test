@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170315211746) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.datetime "time",                                             null: false
+    t.datetime "datetime",                                         null: false
     t.decimal  "price",      precision: 8, scale: 2, default: 0.0
     t.integer  "event_id"
     t.datetime "created_at",                                       null: false
