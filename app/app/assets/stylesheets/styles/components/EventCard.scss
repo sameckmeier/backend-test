@@ -1,0 +1,59 @@
+.EventCard-top,
+.EventCard-middle,
+.EventCard-bottom {
+  display: flex;
+  width: 100%;
+}
+
+.EventCard-date-time,
+.EventCard-share {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.EventCard {
+  height: 350px;
+  width: 45%;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+
+.EventCard-top {
+  height: 15%;
+  justify-content: space-between;
+}
+
+.EventCard-share {
+  background-color: Transparent;
+  border: none;
+}
+
+.EventCard-share img {
+  width: 50px;
+  height: 50px;
+}
+
+.EventCard-middle {
+  height: 65%;
+  align-items: flex-end;
+}
+
+.EventCard-name {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.EventCard-bottom {
+  border-top: 1px solid black;
+  height: 20%;
+}
+
+.EventCard-view {
+  width: 80px;
+  height: 70%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid black;
+}
