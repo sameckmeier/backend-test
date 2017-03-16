@@ -5,8 +5,16 @@ class Meeting < ActiveRecord::Base
     params = params.clone()
 
     time = "#{params.delete(:date)} #{params.delete(:time)}"
-    params[:time] = Time.parse(time).strftime("%Y-%m-%d %H:%M %:z")
-    
+    params[:datetime] = Time.parse(time).strftime("%Y-%m-%d %H:%M %:z")
+
     Meeting.create(params)
+  end
+
+  def time
+    datetime.strftime("%l:%M %P")
+  end
+
+  def date
+    datetime.strftime("%b %d, %Y")
   end
 end
