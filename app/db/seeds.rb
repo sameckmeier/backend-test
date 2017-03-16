@@ -8,7 +8,7 @@ user = User.build({
 })
 
 raw_event = {
-  title: Forgery('lorem_ipsum').title,
+  title: Forgery('lorem_ipsum').words(2),
   description: Forgery('lorem_ipsum').paragraph,
   location: Forgery('name').location,
   user_id: user.id,
