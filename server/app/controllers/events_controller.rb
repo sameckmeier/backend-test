@@ -1,17 +1,16 @@
 class EventsController < ApplicationController
   def index
-    events = []
+    events = Event.includes(:meetings).map do |e|
+      event_json = e.as_json
+      event_json[:meetings] = e.meetings.map do |m|
+        meeting_json = m.as_json
+        meeting_json[:time] = m.time
+        meeting_json[:date] = m.date
 
-    Event.includes(:meetings).each do |e|
-      composed_events = e.meetings.map do |m|
-        event_json = e.as_json
-        event_json[:meeting] = m.as_json
-        event_json[:meeting][:time] = m.time
-        event_json[:meeting][:date] = m.date
-        event_json
+        meeting_json
       end
 
-      events.concat(composed_events)
+      event_json
     end
     
     render({ json: { events: events }})
