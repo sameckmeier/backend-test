@@ -47,3 +47,93 @@
   height: 75px;
   width: 75px;
 }
+
+.reminderContainer {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.reminderLeft {
+  margin-right: 20px;
+}
+
+.reminderLeft img {
+  height: 75px;
+  width: 75px;
+}
+
+.reminderRight,
+.reminderRightTop,
+.reminderRightBottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.reminderRight {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.reminderRightBottom {
+  align-items: flex-end;
+}
+
+.cardTop,
+.cardMiddle,
+.cardBottom {
+  display: flex;
+  width: 100%;
+}
+
+.cardDateTime,
+.cardShare {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.cardContainer {
+  height: 350px;
+  width: 45%;
+  margin-right: 15px;
+  border: 1px solid black;
+}
+
+.cardTop {
+  height: 15%;
+  justify-content: space-between;
+}
+
+.cardShare {
+  background-color: Transparent;
+  border: none;
+}
+
+.cardShare img {
+  width: 50px;
+  height: 50px;
+}
+
+.cardMiddle {
+  height: 65%;
+  align-items: flex-end;
+}
+
+.cardName {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.cardBottom {
+  border-top: 1px solid black;
+  height: 20%;
+}
+
+.cardView {
+  width: 80px;
+  height: 70%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid black;
+}
