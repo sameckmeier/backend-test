@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getEvents } from '../../redux/ducks/events';
 import styles from './Events.scss';
 import add from '../../assets/images/add.svg';
 import EventCard from '../EventCard';
@@ -17,7 +18,7 @@ const eventsRows = events => {
   return rows;
 };
 
-const Events = props => {
+let Events = props => {
   const { events } = props;
   const rows = eventsRows(events);
 
@@ -41,4 +42,17 @@ const Events = props => {
   </div>;
 }
 
-export default connect(state => ({ events: state.events }))(Events);
+Events = connect(state => ({ events: state.events }))(Events);
+
+const EventsLoader = props => {
+  const { getEvents } = props;
+
+  getEvents();
+
+  return <Events />;
+};
+
+export default connect(
+  null,
+  dispatch => ({ getEvents: () => dispatch(getEvents()) }),
+)(EventsLoader);
