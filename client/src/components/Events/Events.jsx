@@ -1,16 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getEvents } from '../../redux/ducks/events';
-import { setEvent } from '../../redux/ducks/event';
 import styles from './Events.scss';
+import EventCard from '../EventCard';
+import EventReminder from '../EventReminder';
 import add from '../../assets/images/add.svg';
-import share from '../../assets/images/share.png';
-import defaultPlaceholder from '../../assets/images/default-placeholder.png';
-
-const truncatedDescription = description => {
-  let truncated = description.split(' ').slice(0,5).join(' ');
-  return `${truncated}...`;
-}
 
 const composedEvents = events => events.reduce(
   (arr, e) => arr.concat(e.meetings.map(m => ({ meeting: m, event: e }))),
@@ -40,51 +34,13 @@ let Events = props => {
     <div className={styles.main}>
       {rows.map((row,i) => {
         return <div className={styles.row} key={i}>
-          {row.map(({ event, meeting }, i) => {
-            return <div className={styles.cardContainer} key={i}>
-              <div className={styles.cardTop}>
-                <div className={styles.cardDateTime}>
-                  { `${meeting.date} @ ${meeting.time}` }
-                </div>
-                <button className={styles.cardShare}>
-                  <img src={share} alt="Share"/>
-                </button>
-              </div>
-              <div className={styles.cardMiddle}>
-                <div className={styles.cardName}>
-                  { event.title }
-                </div>
-              </div>
-              <div className={styles.cardBottom}>
-                <button className={styles.cardView} onClick={() => setEvent(event)}>View</button>
-              </div>
-            </div>;
-          })}
+          {row.map(({ event, meeting }, i) => <EventCard key={i} event={event} meeting={meeting} /> )}
         </div>;
       })}
     </div>
     <div className={styles.side}>
       <h2 className={styles.remindersTitle}>Today's Highlights</h2>
-      {events.map(({ event, meeting }, i) => {
-        return <div className={styles.reminderContainer} key={i}>
-          <div className={styles.reminderLeft}>
-            <img src={defaultPlaceholder} alt="Default Placeholder"/>
-          </div>
-          <div className={styles.reminderRight}>
-            <div className={styles.reminderRightTop}>
-              <div className={styles.reminderNameDateTime}>
-                { `${event.title} ${meeting.date} @ ${meeting.time}` }
-              </div>
-              <div className={styles.reminderDescription}>
-                { truncatedDescription(event.description) }
-              </div>
-            </div>
-            <div className={styles.reminderRightBottom}>
-              <div className={styles.reminderLocation}>{ meeting.location }</div>
-            </div>
-          </div>
-        </div>;
-      })}
+      {events.map(({ event, meeting }, i) => <EventReminder key={i} event={event} meeting={meeting} /> )}
       <div className={styles.add}>
         <button>
           <img src={add} alt="Add"/>
@@ -94,10 +50,7 @@ let Events = props => {
   </div>;
 }
 
-Events = connect(
-  state => ({ events: state.events }),
-  dispatch => ({ setEvent: event => dispatch(setEvent(event)) }),
-)(Events);
+Events = connect(state => ({ events: state.events }))(Events);
 
 const EventsLoader = props => {
   const { getEvents } = props;
