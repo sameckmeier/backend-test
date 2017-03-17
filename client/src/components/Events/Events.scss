@@ -1,0 +1,49 @@
+@import '../../stylesheets/index.scss';
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.main, .side {
+  margin-top: 15px;
+}
+
+.main {
+  @include two-thirds();
+  margin-left: 15px;
+}
+
+.side {
+  @include one-third();
+  margin-right: 15px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.remindersTitle {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 0;
+}
+
+.add {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add button {
+  background-color: Transparent;
+  border: none;
+}
+
+.add img {
+  height: 75px;
+  width: 75px;
+}
