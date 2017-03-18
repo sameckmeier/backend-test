@@ -1,6 +1,9 @@
 .container {
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .header,
@@ -14,13 +17,27 @@
   border-bottom: 1px solid black;
 }
 
-.header{
+.header {
   height: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.backButton {
+  background-color: Transparent;
+  border: none;
+}
+
+.header img {
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
 }
 
 .header h1 {
-  margin-bottom: 5px;
-  margin-left: 15px;
+  font-size: 40px;
+  margin: 0 10px;
+
 }
 
 .main {
@@ -30,5 +47,5 @@
 
 .footer {
   background-color: grey;
-  height: 25px;
+  height: 5%;
 }
