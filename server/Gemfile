@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.7'
 gem 'pg'
-gem 'forgery'
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'rails-api'
+gem 'foreman'
+gem 'will_paginate', '~> 3.1.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -15,6 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'faker', github: 'stympy/faker'
 end
 
 group :development do
