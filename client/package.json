@@ -45,9 +45,16 @@
     "whatwg-fetch": "2.0.2"
   },
   "dependencies": {
+    "currency-formatter": "^1.1.1",
+    "moment": "^2.18.0",
+    "moment-timezone": "^0.5.11",
+    "query-string": "^4.3.2",
+    "rc-time-picker": "^2.3.2",
     "react": "^15.4.2",
+    "react-datepicker": "^0.41.1",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
+    "react-timezone": "^0.1.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },
