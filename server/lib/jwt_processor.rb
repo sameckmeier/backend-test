@@ -1,14 +1,14 @@
 require 'jwt'
 
 module JWTProcessor
-  def self.method_missing?(m, *args, &block)
+  def self.method_missing(m, *args, &block)
     res = nil
-
+    
     case m.to_s
     when 'encode'
-      res = JWT.encode(*args, Rails.application.secrets.secret_jwt_key)
+      res = JWT.encode(*args, Rails.application.secrets.SECRET_JWT_KEY)
     when 'decode'
-      res = JWT.decode(*args, Rails.application.secrets.secret_jwt_key)[0]
+      res = JWT.decode(*args, Rails.application.secrets.SECRET_JWT_KEY)[0]
     else
       raise ArgumentError.new("Method '#{m}' does not exist")
     end
