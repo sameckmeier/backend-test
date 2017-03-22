@@ -1,9 +1,8 @@
 .container {
   height: 100%;
-  width: 100%;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  margin: auto; 
+  max-width: 1300px;
 }
 
 .header,
@@ -15,10 +14,18 @@
 .main {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  height: 85%;
+  overflow-y: auto;
 }
 
 .header {
   height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerLeft {
   display: flex;
   align-items: center;
 }
@@ -31,18 +38,21 @@
 .header img {
   height: 40px;
   width: 40px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .header h1 {
   font-size: 40px;
-  margin: 0 10px;
-
+  margin: 0 15px;
 }
 
-.main {
-  height: 85%;
-  overflow-y: auto;
+.login {
+  height: 50px;
+  width: 90px;
+  background-color: white;
+  border: 1px solid #666;
+  color: #666;
+  margin-right: 15px;
 }
 
 .footer {
