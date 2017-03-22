@@ -1,8 +1,4 @@
 class ApplicationController < ActionController::API
-  include ActionController::RequestForgeryProtection
-  
-  protect_from_forgery with: :exception
-
   attr_reader :current_user
 
   def authenticate_request
@@ -12,17 +8,17 @@ class ApplicationController < ActionController::API
       if user_id
         @current_user = User.find(user_id)
       else
-        render({ json: { errors: ['Not Authenticated'] }, status: :unauthorized })
+        render({ json: { errors: ['Invalid jwt'] }, status: 401 })
       end
     rescue JWT::VerificationError, JWT::DecodeError
-      render({ json: { errors: ['Not Authenticated'] }, status: :unauthorized })
+      render({ json: { errors: ['Invalid jwt'] }, status: 401 })
     end
   end
 
   private
 
   def token_payload
-    token = params[:headers][:Authentication].split(' ')
-    @token_payload ||= JWTProcessor.decode(token[1])
+    token = request.headers['Authorization'].split(' ')
+    @token_payload ||= JWTProcessor.decode(token[1]).symbolize_keys
   end
 end
