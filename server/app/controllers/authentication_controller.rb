@@ -1,20 +1,41 @@
 class AuthenticationController < ApplicationController
   def authenticate_user
-    user = User.find_by_email(params[:email])
+    begin
+      email = params[:auth][:email]
+      password = params[:auth][:password]
 
-    if !user || user.password != params[:password]
-      render({ json: { errors: ['Invalid Email/Password'] }, status: :unauthorized })
-    else
-      render({
-        json: {
-          token: JWTProcessor.encode({ user_id: user.id }),
-          user: {
-            id: user.id,
-            name: user.name,
-            email: user.email
+      user = User.find_by_email(email)
+
+      if !user || user.password != password
+        raise invalid_login_msg
+      else
+        render({
+          json: {
+            jwt: JWTProcessor.encode({ user_id: user.id }),
+            user: {
+              id: user.id,
+              first_name: user.last_name,
+              last_name: user.first_name,
+              email: user.email
+            },
+            status: 200
           }
-        }
-      })
+        })
+      end
     end
+  rescue StandardError => e
+    puts e.message
+    puts e.backtrace
+
+    if e.message == invalid_login_msg
+      render({ json: { errors: [invalid_login_msg] }, status: 401 })
+    else
+      render({ json: { errors: ['Unable to process login request'] }, status: 400 })
+    end
+  end
+
+  private
+  def invalid_login_msg
+    'Invalid Email/Password'
   end
 end
