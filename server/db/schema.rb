@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20170315211746) do
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.datetime "datetime",                                         null: false
+    t.datetime "date_time",                                        null: false
+    t.decimal  "utc_offset", precision: 4,                         null: false
     t.decimal  "price",      precision: 8, scale: 2, default: 0.0
     t.string   "location",                                         null: false
+    t.string   "timezone",                                         null: false
     t.integer  "event_id"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
