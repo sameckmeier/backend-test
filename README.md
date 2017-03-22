@@ -1,41 +1,20 @@
-# Prueba de Ingenious Softworks para candidatos
+# README
 
-Bienvenido **candidato**, estás viendo el repositorio que contiene todos los materiales necesarios para realizar la prueba. La misma deberá entregarse 4 días después de recibida la notificación por correo electrónico.
+## Environment
+This app is split into a client and server. The server is a Rails v4.2.7 API, while the
+client is a React v15.4.2 app that generated with Facebook's create-app generator (https://github.com/facebookincubator/create-react-app).
 
-Por favor, te pedimos que completes la lectura de este README antes de comenzarla ya que muchas de las dudas que puedas tener serán contestadas.
+Make sure you have a recent version of Postgres installed and your DB names reflect those in
+server/config/database.yml. Also, ensure that you have a recent version of Node installed.
 
-## Sobre la prueba
+To start things up, you'll need to cd into both the client and server roots and execute npm install and bundle install, respectively.
 
-La prueba consiste en desarrollar una **Web App** utilizando este repositorio como guía.
+Next, cd into the server root and run rake db:migrate db:seed.    
 
-## Sobre el repositorio
+You'll have to open up a separate terminals to boot up postgres, the server, and client. Optionally, you can run the client and server together in a single terminal by cding into the server root and running foreman start.
 
-Este repositorio contiene la siguiente estructura:
+If anything breaks for you with this set up, please let me know, and I'd be happy to debug!
 
-```
-.
-├── README.md
-├── app
-└── instructions
-```
+Additionally, because of time constraints, I was not able to setup my ideal environment. I typically use linters, have comments, and thorough testing (unit and integration). If you'd like to have a look at another repo that reflects all of this, please refer to https://github.com/sameckmeier/hackerati.
 
-La carpeta [instructions](instructions) contiene la letra del problema y respuestas a posibles preguntas que puedan surgir.
-
-## Cómo entregar la prueba
-
-Para entregar la prueba será necesario devolver este mismo repositorio con la aplicación desarrollada en la carpeta [app](app) e instrucciones para su instalación si existieran.
-
-La forma más práctica de hacerlo es crear un [fork](https://github.com/ingsw-dev/backend-test#fork-destination-box) de este repositorio y desarrollarla allí entregando la url del nuevo repositorio una vez finalizado el desarrollo.
-
-Otra forma de entrega es devolver este mismo repositorio (en un zip) por email con la aplicación desarrollada dentro de `app`.
-
-En ningún caso es necesario enviar o commitear directorios que se provicionen automáticamente.
-
-Para que sea más fácil la instalación y corrección te recomendamos crear un archivo README dentro de [app](app) con los pasos para instalar y levantar la aplicación que has desarrollado.
-
-## Siguientes pasos
-
-Lo siguiente que debes hacer [leer la letra del problema](instructions) y [comenzar a desarrollar](app).
-
-* [Leer la letra del problema](instructions)
-* [Comenzar a desarrollar la app](app)
+Happy Coding! 
