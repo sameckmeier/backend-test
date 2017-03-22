@@ -5,36 +5,31 @@
   width: 100%;
 }
 
-.dateTime,
-.share {
+.dateTime {
   margin-top: 5px;
   margin-left: 5px;
 }
 
 .container {
   height: 350px;
-  width: 45%;
-  margin-right: 15px;
+  margin-bottom: 15px;
+  margin-right: 0;
+  width: 90%;
   border: 1px solid black;
+
+  @media screen and (min-width: 900px) {
+    width: 45%;
+    margin-right: 15px;
+  }
 }
 
 .top {
-  height: 15%;
+  height: 40%;
   justify-content: space-between;
 }
 
-.share {
-  background-color: Transparent;
-  border: none;
-}
-
-.share img {
-  width: 50px;
-  height: 50px;
-}
-
 .middle {
-  height: 65%;
+  height: 40%;
   align-items: flex-end;
 }
 
@@ -49,11 +44,9 @@
 }
 
 .view {
-  width: 80px;
-  height: 70%;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
   background-color: white;
   border: 1px solid black;
+  margin: 10px;
+  width: 80px;
+  height: 50px;
 }

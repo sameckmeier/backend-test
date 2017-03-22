@@ -12,7 +12,12 @@
 
 .main {
   @include two-thirds();
-  margin-left: 15px;
+  margin-left: 0;
+  margin-right: 15px;
+
+  @media screen and (min-width: 900px) {
+    margin-left: 15px;
+  }
 }
 
 .side {
@@ -22,7 +27,17 @@
 
 .row {
   display: flex;
-  margin-bottom: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 15px;
+  }
 }
 
 .remindersTitle {

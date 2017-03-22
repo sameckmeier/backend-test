@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+
+  @media screen and (min-width: 900px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}
+
+.left {
+  margin-right: 20px;
+}
+
+.left img {
+  height: 75px;
+  width: 75px;
+}
+
+.right,
+.rightTop,
+.rightBottom {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  @media screen and (min-width: 900px) {
+    text-align: left;
+  }
+}
+
+.right {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rightBottom {
+  align-items: center;
+
+  @media screen and (min-width: 900px) {
+    align-items: flex-end;
+  }
+}
