@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux';
-import events from './events';
+import meetings from './meetings';
+import paginatedMeetings from './paginatedMeetings';
 import view from './view';
+import event from './event';
+import authentication from './authentication';
+import createEventParams from './createEventParams';
+import user from './user';
 
 export default combineReducers({
-  events,
+  meetings,
+  paginatedMeetings,
   view,
+  event,
+  createEventParams,
+  authentication,
+  user,
 });
