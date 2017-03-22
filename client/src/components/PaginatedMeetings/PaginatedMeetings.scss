@@ -1,0 +1,45 @@
+.paginationButtons,
+.paginationButtons button,
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.paginatedMeetings {
+  border-collapse: collapse;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.paginatedMeetings th, .paginatedMeetings td {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  padding: 8px;
+}
+
+.paginatedMeetings th {
+  text-align: center;
+}
+
+thead > tr {
+  background-color: #DCDCDC;
+}
+
+.paginatedMeetings tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.paginationButtons button {
+  background-color: Transparent;
+  border: none;
+}
+
+.paginationButtons button div {
+  font-size: 15px;
+};
