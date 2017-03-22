@@ -13,8 +13,10 @@ Next, cd into the server root and run rake db:migrate db:seed.
 
 You'll have to open up a separate terminals to boot up postgres, the server, and client. Optionally, you can run the client and server together in a single terminal by cding into the server root and running foreman start.
 
+For login credentials, refer to the user data in server/db/seeds.rb.
+
 If anything breaks for you with this set up, please let me know, and I'd be happy to debug!
 
 Additionally, because of time constraints, I was not able to setup my ideal environment. I typically use linters, have comments, and thorough testing (unit and integration). If you'd like to have a look at another repo that reflects all of this, please refer to https://github.com/sameckmeier/hackerati.
 
-Happy Coding! 
+Happy Coding!
