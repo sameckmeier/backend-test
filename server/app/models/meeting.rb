@@ -1,20 +1,12 @@
 class Meeting < ActiveRecord::Base
   belongs_to :event
 
-  def self.build(params)
-    params = params.clone()
+  self.per_page = 2
 
-    time = "#{params.delete(:date)} #{params.delete(:time)}"
-    params[:datetime] = Time.parse(time).strftime("%Y-%m-%d %H:%M %:z")
+  def self.jsonify(meeting)
+    meeting_json = meeting.as_json
+    meeting_json[:event] = meeting.event.as_json
 
-    Meeting.create(params)
-  end
-
-  def time
-    datetime.strftime("%l:%M %P")
-  end
-
-  def date
-    datetime.strftime("%b %d, %Y")
+    meeting_json
   end
 end
